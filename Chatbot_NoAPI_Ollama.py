@@ -1,14 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
-# Install required packages if not already installed
 get_ipython().system('pip install langchain ollama')
 
-
-# In[9]:
 
 
 from langchain.chat_models import ChatOllama
@@ -34,9 +28,6 @@ def get_completion_from_messages(messages, temperature=0.7):
     return llm(langchain_messages, temperature=temperature)
 
 
-# In[11]:
-
-
 messages =  [  
 {'role':'system', 'content':'You are an assistant that speaks like Shakespeare.'},    
 {'role':'user', 'content':'tell me a joke'},   
@@ -47,10 +38,6 @@ response = get_completion_from_messages(messages, temperature=1)
 print(response)
 
 
-
-# In[15]:
-
-
 messages =  [  
 {'role':'system', 'content':'You are friendly chatbot.'},    
 {'role':'user', 'content':'Hi, my name is Isa'}  ]
@@ -58,19 +45,11 @@ response = get_completion_from_messages(messages, temperature=1)
 print(response)
 
 
-
-# In[17]:
-
-
 messages =  [  
 {'role':'system', 'content':'You are friendly chatbot.'},    
 {'role':'user', 'content':'Yes,  can you remind me, What is my name?'}  ]
 response = get_completion_from_messages(messages, temperature=1)
 print(response)
-
-
-
-# In[37]:
 
 
 messages =  [  
@@ -82,9 +61,6 @@ Is there anything I can help you with today?"},
 response = get_completion_from_messages(messages, temperature=1)
 print(response)
 
-
-
-# In[29]:
 
 
 # OrderBot
@@ -107,9 +83,6 @@ def collect_messages(_):
                                       width=600)))
 
     return pn.Column(*panels)
-
-
-# In[33]:
 
 
 import panel as pn  # GUI
@@ -158,12 +131,7 @@ dashboard = pn.Column(
     pn.Row(button_conversation),
     pn.panel(interactive_conversation, loading_indicator=True, height=300),
 )
-
 dashboard
-
-
-
-# In[35]:
 
 
 messages =  context.copy()
@@ -176,11 +144,6 @@ messages.append(
 
 response = get_completion_from_messages(messages, temperature=0)
 print(response)
-
-
-
-
-# In[ ]:
 
 
 
